@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Эрболот Это Я</title>
+   <!-- Иконка сайта -->
+  <link rel="icon" type="image/png" href="E.jpg" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --accent-color: #0d6efd;
+      --card-bg: #ffffff;
+    }
+    .accordion-item, .accordion-button, .accordion-body {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+.list-group-item {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: rgba(0,0,0,0.1);
+}
+.custom-bg {
+  background-color: var(--bg-color);
+}
+.text-muted {
+  color: var(--text-color) !important;
+  opacity: 0.7;
+}
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #f8f9fa;
+      --accent-color: #0d6efd;
+      --card-bg: #1e1e1e;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease-in-out;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .navbar, footer {
+      background-color: var(--card-bg) !important;
+    }
+
+    .nav-link, .navbar-brand, footer a {
+      color: var(--text-color) !important;
+    }
+
+    .section-title {
+      color: var(--text-color);
+    }
+
+    .btn-theme-toggle {
+      border: none;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 1.2rem;
+    }
+
+    .card-style {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .card-style:hover {
+      transform: translateY(-5px);
+    }
+
+    .form-control {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border-color: #ccc;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm py-3" style="background-color: var(--card-bg);">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#hero">
+      <img src="E.jpg" alt="Логотип" style="height: 40px; width: 40px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.2);" />
+      <span class="fw-bold fs-5" style="color: var(--text-color);">Эрболот</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link px-3" href="#about">Обо мне</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#projects">Портфолио</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#skills">Навыки</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#resume">Резюме</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#contact">Контакты</a></li>
+        <li class="nav-item">
+          <button id="themeToggle" class="btn-theme-toggle ms-3" title="Переключить тему">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero -->
+  <header id="hero" class="d-flex align-items-center justify-content-center text-center position-relative" style="height: 100vh;">
+    <video autoplay muted loop playsinline    class="position-absolute w-100 h-100" style="object-fit: cover; z-index: 0;">
+      <source  src="v0_1.mp4" type="video/mp4">
+    </video>
+    <div class="container position-relative text-white z-1">
+      <h1 class="display-3 fw-bold">Привет! Я Эрболот</h1>
+      <p class="lead">Веб‑дизайнер & Видеомонтажёр</p>
+      <a href="#projects" class="btn btn-primary btn-lg mt-3">Мои проекты</a>
+    </div>
+  </header>
+ <div class="modal fade" id="mobilePreviewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Мобильная версия</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body d-flex flex-column align-items-center">
+        <div style="width: 375px; height: 667px; border: 16px solid #333; border-radius: 36px; box-shadow: 0 0 20px rgba(0,0,0,0.3); overflow: hidden;">
+          <iframe src="file:///C:/Users/TechLine/Downloads/Telegram%20Desktop/G.html" width="100%" height="100%" style="border: none;"></iframe>
+        </div>
+        <button type="button" class="btn btn-outline-secondary mt-3" data-bs-dismiss="modal">
+          🔙 Вернуться на ПК версию
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4 section-title">Обо мне</h2>
+      <p class="text-center">Я увлечённый дизайнер и монтажёр, помогающий компаниям выделяться с помощью ярких визуальных решений. Работаю с современными инструментами и постоянно улучшаю свои навыки, чтобы предлагать клиентам лучшее.</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-5 section-title">Навыки</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-style p-4 rounded-4">
+            <i class="fa-solid fa-code fa-2x mb-3"></i>
+            <h5>HTML / CSS / JS</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-style p-4 rounded-4">
+            <i class="fa-brands fa-react fa-2x mb-3"></i>
+            <h5>React & Next.js</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-style p-4 rounded-4">
+            <i class="fa-solid fa-film fa-2x mb-3"></i>
+            <h5>Видеомонтаж</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section id="resume" class="py-5 custom-bg">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5">Резюме</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <h4 class="fw-bold">Опыт работы</h4>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item">
+            <strong>Веб-дизайнер / Фриланс</strong><br />
+            <small class="text-muted">2023 — н.в.</small>
+            <p>Разработка лендингов, редизайн сайтов, UX/UI улучшения для клиентов малого бизнеса.</p>
+          </li>
+          <li class="list-group-item">
+            <strong>Видеомонтажёр / YouTube-проекты</strong><br />
+            <small class="text-muted">2021 — 2022</small>
+            <p>Монтаж рекламных и обучающих видеороликов с использованием Premiere Pro и DaVinci Resolve.</p>
+          </li>
+        </ul>
+
+        <h4 class="fw-bold">Образование</h4>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item">
+            <strong>Курс по веб-разработке</strong><br />
+            <small class="text-muted">Только универ и Youtube</small>
+          </li>
+          <li class="list-group-item">
+            <strong>Основы видеомонтажа</strong><br />
+            <small class="text-muted">Youtube</small>
+          </li>
+        </ul>
+
+        <h4 class="fw-bold">Дополнительные навыки</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Adobe XD, Photoshop</li>
+          <li class="list-group-item">Adobe Premiere Pro, After Effects</li>
+          <li class="list-group-item">Git, VS Code, Trello</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Portfolio -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5 section-title">Портфолио</h2>
+    <div class="row g-3">
+      <div class="col-6 col-md-3">
+        <video class="w-100 rounded-4" autoplay muted loop playsinline>
+          <source src="v1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="col-6 col-md-3">
+        <video class="w-100 rounded-4" autoplay muted loop playsinline>
+          <source src="v4.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="col-6 col-md-3">
+        <video class="w-100 rounded-4" autoplay muted loop playsinline>
+          <source src="v3.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="col-6 col-md-3">
+        <video class="w-100 rounded-4" autoplay muted loop playsinline>
+          <source src="v2.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- FAQ -->
+   <section id="faq" class="py-5 custom-bg">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4">FAQ</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true">Сколько стоит ваш сайт?</button>
+          </h2>
+          <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Цена зависит от объёма и сложности проекта – расскажите о задачах, и я подготовлю точную смету.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">Сколько времени занимает разработка?</button>
+          </h2>
+          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Типовой лендинг — от 1 недели, крупный сайт — от 1 месяца. Точные сроки зависят от контента и функций.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">Предоставляете ли поддержку после запуска?</button>
+          </h2>
+          <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Да, предлагаю пакеты технической поддержки и обновлений по договорённости.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4 section-title">Связаться со мной</h2>
+      <form class="mx-auto" style="max-width: 600px;">
+        <div class="mb-3">
+          <label class="form-label">Имя</label>
+          <input type="text" class="form-control" placeholder="Ваше имя" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="name@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Сообщение</label>
+          <textarea class="form-control" rows="4" placeholder="Как я могу помочь?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Отправить</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center">
+    <div class="container">
+      <p class="mb-1">© 2025 Эрболот. Все права защищены.</p>
+      <ul class="list-unstyled mb-2">
+        <li><a href="mailto:erbolotmadraimov08@gmail.com"><i class="fas fa-envelope me-2"></i>erbolotmadraimov08@gmail.com</a></li>
+        <li><a href="tel:+996224207575"><i class="fas fa-phone me-2"></i>+996 224 207 575</a></li>
+        <li><a href="https://t.me/Ribol "><i class="fab fa-telegram me-2"></i>@Ribol</a></li>
+      </ul>
+      <div>
+        <a href="https://facebook.com/erbolot" class="me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/erbolot" class="me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/erbolot"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap & Theme Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      themeToggle.innerHTML = next === 'dark' 
+        ? '<i class="fa-solid fa-sun"></i>' 
+        : '<i class="fa-solid fa-moon"></i>';
+    });
+  </script>
+</body>
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  // Проверка и установка темы при загрузке страницы
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    html.setAttribute('data-theme', savedTheme);
+    themeToggle.innerHTML = savedTheme === 'dark'
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+  } else {
+    // По умолчанию — светлая тема
+    html.setAttribute('data-theme', 'light');
+    themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.innerHTML = newTheme === 'dark'
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+  });
+</script>
+<script>
+  const video = document.querySelector("video");
+  video.addEventListener("ended", () => {
+    video.currentTime = 0;
+    video.play();
+  });
+</script>
+
+<div class="modal fade" id="mobilePreviewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Мобильная версия</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+        <div style="width: 375px; height: 667px; border: 16px solid #333; border-radius: 36px; box-shadow: 0 0 20px rgba(0,0,0,0.3); overflow: hidden;">
+          <iframe src="G.html" width="100%" height="100%" style="border: none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>
